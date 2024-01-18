@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <div class="container-fluid mt-5">
+            <h1 class="m-5 text-center">Foto Galareya</h1>
+            <div class="Main-header">
+                <div class="row justify-content-around">
+                    {% for fo in foto %}
+
+                    <div class="min-hdr2 col-lg-3 col-md-6 col-sm-12 mt-2">
+                        <img class="min-img1" src="{{fo.img.url}}" alt=""><br>
+                        <div class="text-mn">
+                            <a class="nv-text" href="./Fo'to'Galareya.html">{{fo.name}}</a>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+<!--        <div class="container-fluid mt-5">-->
+<!--          <div class="Main-header">-->
+<!--              <div class="row justify-content-around">-->
+<!--                  {% for fo in foto %}-->
+<!--                  {% if fo.id > 4 %}-->
+<!--                  <div class="min-hdr1 col-lg-3 col-md-6 col-sm-12 mt-2">-->
+<!--                      <img class="min-img" src="./img/noyob-1.jpg" alt=""><br>-->
+<!--                      <div class="text-mn">-->
+<!--                          <a class="nv-text" href="./Fo'to'Galareya.html">VERBEKXOVEN E. «Suvloq-poda <br> cho'pon bilan»</a>-->
+<!--                      </div>-->
+<!--                  </div>-->
+<!--                  {% endif %}-->
+<!--                  {% endfor %}-->
+<!--              </div>-->
+<!--          </div>-->
+<!--        </div>-->
+  {% endblock content %}

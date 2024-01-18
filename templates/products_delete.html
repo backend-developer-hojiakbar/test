@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2 class="text-center">Joriy yangilikni o'chirish</h2>
+<form method="post"> {% csrf_token %}
+  <p>{{products.name}} sarlavhali yangilikni o'chirishni xohlaysizmi ?</p>
+    <button class="btn btn-danger" type="submit">Tasdiqlayman</button>
+</form>
+
+{% endblock content %}

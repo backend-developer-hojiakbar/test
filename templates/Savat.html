@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>Assalomu alaykum , siz savatingizga xush kelibsiz.<br>Bu yerda xarid qilmoqchi bo'lgan buyumlariz ro'yxati joylashgan.
+Bu uchun bizning binomizga tashrif buyurishingiz mumkin.</h1>
+<div class="container mt-5">
+    {% for sot in proSotuv %}
+    {% for pro in products %}
+    {% if sot.maxsulotId == pro.id %}
+    <div class="row justify-content-around">
+        <div class="col-lg-6 mt-4">
+            <img class="Header-img" src="{{pro.img.url}}" alt="">
+        </div>
+        <div class="col-lg-6 mt-3">
+          <h2 class="text-dark">{{pro.name}}</h2><br>
+              <div class="flex-item">
+                  <h2 class="text-start text-success">${{pro.dis_cost}}</h2>
+              </div>
+            <div class="hdr-button mt-5">
+            </div>
+        </div>
+      </div>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    </div>
+
+{% endblock content %}

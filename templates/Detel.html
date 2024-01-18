@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Bu ashyomiz kammentimiz soni : {{comment_count}}</h2>
+    <div class="row justify-content-around">
+        <div class="col-lg-6 mt-4">
+            <img class="Header-img" src="{{product.img.url}}" alt="">
+        </div>
+        <div class="col-lg-6 mt-4">
+          <h2 class="text-dark">{{product.name}}</h2><br>
+            <h4 style="color: blue">Mahsulot id: <b>{{product.id}}</b> <span style="color:black">(esda saqlang)</span>  </h4>
+          <div class="flex-icons col-5">
+              <i class="fa-regular fa-star text-primary"></i>
+              <i class="fa-regular fa-star text-primary"></i>
+              <i class="fa-regular fa-star text-primary"></i>
+              <i class="fa-regular fa-star text-primary"></i>
+              4.5 (1470)
+            </div><br>
+              <div class="flex-item">
+                  <h2 class="text-start text-success">${{product.dis_cost}} <del class="text-secondary ">${{product.cost}}</del></h2>
+              </div>
+            <div class="hdr-button mt-5">
+              <button><a class="text-decoration-none " href="{% url 'sotuv' %}">BUY NOW</a></button>
+                {% if request.user == superuser %}
+                <a href="{% url 'product_update' product.slug %}">Tahrirlash</a>
+                <a href="{% url 'product_delete' product.slug %}">O'chirish</a>
+                {% endif %}
+            </div>
+
+        </div>
+      </div>
+    </div>
+<h1>Izohlar</h1>
+{% for comment in comments %}
+            <div class="comments" style="padding:10px">
+                <p class="font-weight-bold">
+                    {{comment.user}}
+                    <span class="text-muted font-weight-normal">
+                        {{comment.created_time}}
+                    </span>
+                </p>
+                {{comment.body | linebreaks }}
+            </div>
+            {% endfor %}
+    {% if user.is_authenticated %}
+<div class="col-md-8 card mb-4 mt-5">
+    <div class="card-boy">
+        <h3>Izoh qoldirish</h3>
+        <form method="POST" style="margin-top: 1.3em"> {% csrf_token %}
+            {{comment_form.as_p}}
+            <button type="submit" class="btn btn-primary btn-lg">Yuborish</button>
+        </form>
+    </div>
+</div>
+{% else %}
+    <div class="card-body">
+        <p class="text-danger">Faqatgina ro'yhatdan o'tsangizgina izoh yoza olasiz</p>
+        <h3>Buning uchun <a href="{% url 'sign_up'%}">ro'yhatdan o'tish</a> va <a href="{% url 'login'%}">login</a> </h3>
+    </div>
+{% endif %}
+
+{% endblock content %}

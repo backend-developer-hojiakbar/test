@@ -1,0 +1,237 @@
+.navbar-item > a:hover{
+    color: rgb(230, 194, 18);
+    transition: 0.75s;
+}
+.navbar-item1{
+    display: flex;
+}
+.navbar-item1 > i{
+    font-size: 20px;
+}
+.navbar-item1 > i:hover{
+    color: rgb(230, 194, 18);
+    transition: 0.75s;
+}
+.nav-item{
+    display: flex;
+}
+.nav-link > a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+.nav-link > button > a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+.nav-link > button > a:hover{
+    color: aqua;
+    font-size: 20px;
+    transition: 0.5s;
+}
+.nav-link > a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+.nav-link > a:hover{
+    color: aqua;
+    transition: 0.5s;
+}
+.nav-link > button{
+    color: white;
+    font-weight: bold;
+}
+.dropdown > button{
+    font-weight: bold;
+}
+.input-group{
+    width: 200px;
+    height: 20px;
+}
+.nav-button > button{
+    width: 250px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.nav-button{
+    margin-left: 50px;
+}
+.nav-button > button:hover{
+    background-color: #ffc107;
+    transition: 0.5s;
+}
+.nav-item > form > input{
+    width: 250px;
+    height: 50px;
+    margin-top: 15px;
+    border-radius: 50px;
+    border: 1px solid white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+.min-hdr{
+    text-align: center;
+}
+.min-hdr > img{
+    width: 400px;
+    height: 600px;
+    margin-top: 16px;
+}
+.min-hdr1 > img{
+    width: 400px;
+    height: 627px;
+}
+.min-hdr1{
+    text-align: center;
+}
+.Main-header{
+    display: flex;
+}
+.min-hdr1 > a{
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    font-weight: bolder;
+    font-style: italic;
+    margin-top: 20px;
+}
+.min-hdr > a{
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    font-weight: bolder;
+    font-style: italic;
+}
+.main-hr{
+    margin-top: -50px;
+    margin-left: 20px;
+}
+.main-hr1{
+    margin-left: 290px;
+    margin-top: -35px;
+}
+.text-mn{
+    margin-top: 20px;
+}
+.text-mn > a{
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    font-weight: bolder;
+    font-style: italic;
+    text-align: center;
+}
+.min-hdr1 > button{
+    width: 130px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: white;
+    border: 1px solid slategray;
+    font-weight: bolder;
+}
+.min-hdr > button{
+    width: 130px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: white;
+    border: 1px solid slategray;
+    font-weight: bolder;
+}
+.min-hdr1 > button:hover{
+    background-color: slategray;
+    color: white;
+    transition: 1s;
+    font-weight: bolder;
+}
+.min-hdr > button:hover{
+    background-color: slategray;
+    color: white;
+    transition: 1s;
+    font-weight: bolder;
+}
+.min-img1{
+    height: 600px;
+    width: 400px;
+    margin-top: 17px;
+}
+.nv-text{
+    text-align: center;
+}
+.min-hdr3 > img{
+    width: 400px;
+    height: 600px;
+    margin-top: 16px;
+    text-align: center;
+}
+.nav-text{
+    color: #ffc107;
+    font-weight: bold;
+    margin-left: 30px;
+}
+.nav-text1{
+    font-weight: bold;
+    margin-left: 10px;
+}
+.Footer{
+    background-color: #282626;
+    width: 100%;
+    height: 600px;
+    color: white;
+    padding: 170px;
+}
+.Footer-item > h1{
+    font-size: 30px;
+}
+.Footer-item > button{
+    width: 50px;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: #282626;
+    border: 1px solid white;
+    color: white;
+    font-size: 20px;
+    margin: 5px;
+}
+.Footer-item > button:hover{
+    background-color: black;
+    color: white;
+    border: none;
+    transition: 2s;
+}
+.Footer-item > a{
+    color: white;
+    text-decoration: none;
+    font-size: 19px;
+}
+.Footer-item > pre > a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+.Footer-item > pre:hover{
+    color: slategray;
+    transition: 0.3s;
+}
+.Footer-item > pre > a:hover{
+    color: slategray;
+    transition: 0.3s;
+}
+.Footer-item > a:hover{
+    color: slategray;
+    transition: 0.3s;
+}
+.Footer-item > p{
+    font-size: 19px;
+}
+.offcanvas-bottom{
+    height: 50vh;
+}

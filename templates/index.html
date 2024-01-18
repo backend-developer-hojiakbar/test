@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <div class="container-fluid">
+            <div class="Header-bg-img">
+                <h1>O'ZBEKISTON MILLIY MUZEYIGA <br> XUSH KELIBSIZ</h1>
+            </div>
+        </div>
+        <div class="container bg-dark mt-5">
+            <div class="row">
+                <div class="Header col-lg-8 col-md-6 col-sm-12 p-5">
+                    <h1><a href="./Biz haqimizda.html">Muzey Haqida</a></h1>
+                    <p class="pt-4">Oʻzbekiston davlat sa'nat muzeyi Oʻrta Osiyodagi sa'nat <br> yoʻnalishidagi eng yirik muzeylardan biridir. Muzey 1918-yilda <br> tashkil topgan. Bugungi kunda 100 000 dan ortiq noyob ashyo <br> va kolleksiyalarni saqlamoqda.</p>
+                    <button class="Bttn mt-3 bg-dark"><a class="text-decoration-none text-light" href="./Biz haqimizda.html">Ko'proq</a></button>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 p-5 bg-danger">
+                    <p class="text-hdr text-light">Tashrif buyurish vaqti</p>
+                    <div class="header-item d-flex justify-content-evenly mt-4">
+                        <div>
+                            <i class="fa-regular fa-clock text-light"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-light"><a class="text-light text-decoration-none" href="#">Soat</a></h1>
+                            <p class="text-light font-monospace">Seshanba - yakshanba <br> kunlari soat 09:00 dan <br> 18:00 gacha</p>
+                        </div>
+                    </div><hr class="text-light">
+                    <div class="header-item d-flex justify-content-evenly mt-4">
+                        <div>
+                            <i class="fa-solid fa-location-dot text-light"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-light"><a class="text-light text-decoration-none" href="#">Manzil</a></h1>
+                            <p class="text-light font-monospace">Oʻzbekiston Respublikasi <br>Toshkent Shahri Amir <br> temur shoh koʻchasi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1 class="text-center mt-5">Yangiliklar</h1>
+            <div class="row mt-5">
+                {% for ne in news %}
+                <div class="col-lg-4 shadow p-4">
+                    <img class="Yangilik-img col-12" src="{{ne.img.url}}" alt="">
+                    <p class="font-monospace pt-2">{{ne.bio}}</p>
+                    <div class="d-flex justify-content-between p-3">
+                        <pre><i class="fa-solid fa-calendar-days"></i> {{ne.date}}</pre>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="container">
+            <h1 class="mt-5">Muzey haqida video</h1>
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <iframe width="100%" height="500" src="https://www.youtube.com/embed/2PUmPtjfBHU?si=M6ZI83oNskPO2W7i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1 class="m-5 text-center">Muzeyning sotuvdagi noyob durdonalari</h1>
+            <div class="Main-header">
+                <div class="row justify-content-around">
+                    {% for pro in products %}
+                    {% if pro.id < 4 %}
+                    <div class="min-hdr1 col-lg-4 col-md-6 col-sm-12 mt-2">
+                        <img class="min-img" src="{{pro.img.url}}" alt=""><br>
+                        <div class="text-mn">
+                            <a class="{{pro.get_absolute_url}}" href="#">{{pro.name}}</a><br><br>
+                        </div>
+                        <button><a class="text-decoration-none text-dark" href="{{pro.get_absolute_url}}">Ko'proq</a></button>
+                        <div class="justifly-content-around">
+                            <div class="main-hr">
+                                <hr class="col-3"><hr class="col-3">
+                            </div>
+                            <div class="main-hr1">
+                                <hr class="col-10"><hr class="col-10">
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+{% endblock content %}

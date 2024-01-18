@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2 class="text-center">Qidiruv natijalari</h2>
+{% for mahsulot in barcha_mahsulotlar %}
+<h3 class="text-center mt-4"><a href="{% url 'detail' mahsulot.slug %}">{{mahsulot.name}}</a>
+<p class="mt-5"><img style="width:300px;height:500px" src="{{mahsulot.img.url}}"></p>
+</h3>
+{% endfor %}
+{% endblock content %}

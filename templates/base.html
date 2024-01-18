@@ -1,0 +1,242 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etaj</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'Ashyolar.css' %}">
+    <link rel="stylesheet" href="{% static 'Biz haqimizda.css' %}">
+    <link rel="stylesheet" href="{% static 'Boglanish.css' %}">
+    <link rel="stylesheet" href="{% static 'Detel.css' %}">
+    <link rel="stylesheet" href="{% static 'FotoGalareya.css' %}">
+    <link rel="stylesheet" href="{% static 'Savat.css' %}">
+     <link rel="stylesheet" href="{% static 'login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="navbar justify-content-between bg-secondary text-light p-3">
+                <div class="nav-item mt-2">
+                    <img src="{% static 'img/navbar.png' %}" alt="">
+                </div>
+                <div class="d-xl-flex d-none nav-item mt-2">
+                    <div class="nav-link p-3 col-lg-2 col-md-6 col-sm-3">
+                        <a href="{% url 'index'%}">Asosiy</a>
+                    </div>
+                    <div class="nav-link dropdown col-lg-3 col-md-6 col-sm-3 mt-2">
+                        <a href="{% url 'about'%}">Haqimizda</a>
+                    </div>
+                    <div class="nav-link dropdown col-lg-4 col-md-6 col-sm-3">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          <a href="#">Buyumlar</a>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" href="{% url 'gallery'%}">Foto Galareya</a></li>
+                          <li><a class="dropdown-item" href="{% url 'ashyolar'%}">Ashyolar</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-link p-3 col-lg-4 col-md-6 col-sm-3">
+                        <a href="{% url 'contact'%}">Bog'lanish</a>
+                    </div>
+                </div>
+                <div class="d-xl-flex d-none nav-item">
+                    <form method="get" action="{% url 'search_results' %}" class="d-flex mb-2" role="search">
+                        <input name="q" class="form-control me-2" type="search" placeholder="Qidiruv..">
+                    </form>
+                </div>
+                <div class="d-xl-flex d-none navbar-item">
+                    <i class="fa-regular fa-user text-light mt-2"></i>
+                    {% if request.user.is_authenticated %}
+                    <a class="nav-text" href="{% url 'user-profile'%}">My profile</a>
+                    {% else %}
+                    <a class="nav-text1" href="{% url 'sign_up'%}">Ro'yhatdan o'tish</a>
+                    {% endif %}
+
+                    <a class="nav-text" href="{% url 'login'%}">Kirish</a>
+                </div>
+                <button type="button" class="btn btn-secondary"><i class="fa-solid fa-cart-shopping"></i><a class="text-decoration-none text-light " href="{% url 'savat'%}"> <b class="p-1">Savat</b></a></button>
+                <div class="d-xl-flex d-none navbar-item1">
+                    <i class="fa-brands fa-youtube p-2"></i>
+                    <i class="fa-brands fa-facebook-f p-2"></i>
+                    <i class="fa-brands fa-instagram p-2"></i>
+                    <i class="fa-brands fa-telegram p-2"></i>
+                    <div class="dropdown">
+                        <button class="btn text-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          <a class="text-decoration-none text-light" href="#">UZ</a>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" href="#">UZ</a></li>
+                          <li><a class="dropdown-item" href="#">RU</a></li>
+                          <li><a class="dropdown-item" href="#">ENG</a></li>
+                        </ul>
+                      </div>
+                </div>
+                <button class="d-xl-none d-flex navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <i class="fa-solid fa-bars"></i>
+                  </button>
+                  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                          <a class="nav-link active text-dark" aria-current="page" href="#">Asosiy</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Haqida
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Ashyolar</a></li>
+                            </ul>
+                          </li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Foto'galareya
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Yangiliklar</a></li>
+                          </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">Bog'lanish</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="navbar-item">
+                                <i class="fa-regular fa-user text-dark"></i>
+                                <a class="nav-text1 text-dark text-decoration-none" href="#">Ro'yhatdan o'tish</a>
+                                <a class="nav-text text-decoration-none text-dark" href="#">Kirish</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="navbar-item1">
+                                <i class="fa-brands fa-youtube p-2 text-dark"></i>
+                                <i class="fa-brands fa-facebook-f p-2 text-dark"></i>
+                                <i class="fa-brands fa-instagram p-2 text-dark"></i>
+                                <i class="fa-brands fa-telegram p-2 text-dark"></i>
+                                <div class="dropdown">
+                                    <button class="btn text-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                      <a class="text-decoration-none text-dark" href="#">UZ</a>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                      <li><a class="dropdown-item" href="#">UZ</a></li>
+                                      <li><a class="dropdown-item" href="#">RU</a></li>
+                                      <li><a class="dropdown-item" href="#">ENG</a></li>
+                                    </ul>
+                                  </div>
+                            </div>
+                        </li>
+                      </ul>
+                      <form class="d-flex mt-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                      </form>
+                    </div>
+                  </div>
+            </div>
+        </div>
+      {% block content %}
+      {% endblock content %}
+            <div class="Footer mt-5">
+            <div class="row justify-content-evenly">
+                 <div class="d-xl-none d-flex">
+                    <div class="Footer-item col-lg-3 mt-2">
+                      <img src="{% static 'img/navbar.png' %}" alt=""><br><br><br>
+                    </div>
+                 </div>
+                <div class="Footer-flex d-xl-flex d-none">
+                  <div class="Footer-item col-lg-3 mt-2">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.708092374813!2d69.2446903755743!3d41.31521350046965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b49ef295ea1%3A0xc70178670c5462a9!2sMuseum%20of%20Celebrities!5e0!3m2!1suz!2s!4v1705312399518!5m2!1suz!2s" width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                  </div>
+                  <div class="Footer-item col-lg-2 col-md-4 col-sm-6">
+                    <h1>Tezkor <br> Havolalar</h1><br>
+                    <pre>» <a href="#">Youtube</a></pre>
+                    <pre>» <a href="#">Instagram</a></pre>
+                    <pre>» <a href="#">Telegram</a></pre>
+                    <pre>» <a href="#">Facebook</a></pre>
+                  </div>
+                  <div class="Footer-item col-lg-2 col-md-4 col-sm-6">
+                      <h1>Bogʻlanish</h1>
+                      <p>Toshkent shahar, Amir <br> Temur shoh ko‘chasi 16</p>
+                      <a href="#">+998 71 236 74 36</a><br>
+                      <a href="#">+998 71 233 62 81</a><br>
+                      <a href="#"><i class="fa-solid fa-envelope"></i>tmi2007@gmail.com</a><br>
+                      <a href="#"><i class="fa-solid fa-tty"></i>+998 71 236 74 36</a>
+                  </div>
+                  <div class="Footer-item col-lg-3 col-md-4 col-sm-6">
+                      <h1>Ish Kunlari</h1>
+                      <p>Seshanba - yakshanba kunlari <br> soat 09:00 dan 18:00 gacha</p>
+                      <h1>Ijtimoiy Tarmoqlar</h1><br>
+                      <button><i class="fa-brands fa-facebook-f"></i></button>
+                      <button><i class="fa-brands fa-instagram"></i></button>
+                      <button><i class="fa-brands fa-youtube"></i></button>
+                      <button><i class="fa-brands fa-telegram"></i></button>
+                  </div>
+                  <div class="Footer-item col-lg-2 col-md-4 col-sm-6">
+                      <h1>Tezkor Havolalar</h1>
+                      <pre>» <a href="{% url 'index'%}">Asosiy</a></pre>
+                      <pre>» <a href="{% url 'ashyolar'%}">Ashyolar</a></pre>
+                      <pre>» <a href="{% url 'gallery'%}">Fo'to'galareya</a></pre>
+                      <pre>» <a href="{% url 'contact'%}">Bog'lanish</a></pre>
+                  </div>
+                </div>
+            </div>
+                <p style="color:white;">Created by: Hojiakbar & Yahyobek</p>
+            <button class="btn btn-primary d-xl-none d-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><i class="fa-solid fa-bars"></i></button>
+
+          <div class="offcanvas offcanvas-bottom bg-dark" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+            <div class="offcanvas-header">
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body small">
+              <div class="Footer-flex d-sm-block d-xl-flex d-lg-flex d-md-block">
+                <div class="Footer-item col-lg-2 col-md-4 col-sm-6 mt-2">
+                  <img src="./img/navbar.png" alt=""><br><br><br>
+                  <p>Podcasting operational change <br> management inside of workflows to <br> establish a framework. Taking <br> seamless.</p>
+                </div>
+                <div class="Footer-item col-lg-2 col-md-4 col-sm-6">
+                  <h1>Tezkor <br> Havolalar</h1><br>
+                  <pre>» <a href="#">Youtube</a></pre>
+                  <pre>» <a href="#">Instagram</a></pre>
+                  <pre>» <a href="#">Telegram</a></pre>
+                  <pre>» <a href="#">Facebook</a></pre>
+                </div>
+                <div class="Footer-item col-lg-2 col-md-4 col-sm-6">
+                    <h1>Bogʻlanish</h1>
+                    <p>Toshkent shahar, Amir <br> Temur shoh ko‘chasi 16</p>
+                    <a href="#">+998 71 236 74 36</a><br>
+                    <a href="#">+998 71 233 62 81</a><br>
+                    <a href="#"><i class="fa-solid fa-envelope"></i>tmi2007@gmail.com</a><br>
+                    <a href="#"><i class="fa-solid fa-tty"></i>+998 71 236 74 36</a>
+                </div>
+                <div class="Footer-item col-lg-3 col-md-4 col-sm-6">
+                    <h1>Ish Kunlari</h1>
+                    <p>Seshanba - yakshanba kunlari <br> soat 09:00 dan 18:00 gacha</p>
+                    <h1>Ijtimoiy Tarmoqlar</h1><br>
+                    <button><i class="fa-brands fa-facebook-f"></i></button>
+                    <button><i class="fa-brands fa-instagram"></i></button>
+                    <button><i class="fa-brands fa-youtube"></i></button>
+                    <button><i class="fa-brands fa-telegram"></i></button>
+                </div>
+                <div class="Footer-item col-lg-2 col-md-4 col-sm-6">
+                    <h1>Tezkor Havolalar</h1>
+                    <pre>» <a href="#">Asosiy</a></pre>
+                    <pre>» <a href="./Ashyolar.html">Ashyolar</a></pre>
+                    <pre>» <a href="./Fo'to'Galareya.html">Fo'to'galareya</a></pre>
+                    <pre>» <a href="./Bog'lanish.html">Bog'lanish</a></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</html>

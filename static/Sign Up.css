@@ -1,0 +1,63 @@
+.container-fluid{
+    background-image: url(./img/header-bg-img.png);
+    background-size: cover;
+    height: 1000px; 
+}
+.sign{
+    margin-bottom: 100px;
+    color: var(--text-white, #FFF);
+    text-align: center;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-family: 'Nunito';
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 63.984px;
+}
+.labes{
+    width: 70%;
+    height: 700px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.80);
+    padding-top: 50px;
+}
+.labes h1{
+    padding-top: 24px;
+    color: rgba(0, 0, 0, 0.89);
+    font-family: 'Poppins';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 15px;
+}
+.labes label{
+    color: #000;
+    margin-top: 23px;
+    font-family: 'Poppins';
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.labes input{
+    width: 403px;
+    height: 36.883px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #000;
+    background: #FFF;
+}
+.labes .btn-primary{
+    background: linear-gradient(270deg, rgba(97, 176, 220, 0.84) 41.1%, rgba(97, 176, 220, 0.11) 101.63%);
+    border: none;
+    width: 50%;
+    height: 49.75px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #000;
+    font-family: 'Poppins';
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
